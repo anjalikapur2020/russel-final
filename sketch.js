@@ -198,7 +198,7 @@ function draw() {
         strokeWeight(4)
         text("LEVEL 1", player.x - 100, 100)
          text("Health : "+health, player.x + 300, 100)
-        // healthlevel1()
+      
 
 
         for(i=0;i<collectibleGroup.length;i++){
@@ -226,10 +226,10 @@ if (gameState == "level2") {
     fill("yellow")
     stroke(255, 0, 0)
     strokeWeight(2)
-    text("LEVEL 2", player.x - 100, player.y - 300)
-    // healthlevel1()
+    text("LEVEL 2", player.x - 100, 100)
+  
 
-    text("Health : "+health1, player.x + 200, player.y - 300)
+    text("Health : "+health1, player.x + 300, 100)
 
     for(i=0;i<collectibleGroup.length;i++){
         if(collectibleGroup.get(i).isTouching(player)){
@@ -273,21 +273,12 @@ function mute() {
     }
 }
 
-function healthlevel1() {
 
-    stroke("gold");
-    strokeWeight(7);
-    noFill();
-    rect(player.x + 200, 10, 200, 20);
 
-    noStroke();
-    fill("red");
-    rect(player + 200, 10, map(health, 0, maxHealth, 0, 200), 20);
-}
 
 
 function obstacles() {
-    if (frameCount % 200  == 0) {
+    if (frameCount % 10  == 0) {
         rand = Math.round(random(height / 4, height - 100))
         obstacle = createSprite(player.x+width/2, player.y)
         obstacle.velocityX = -2
@@ -335,20 +326,18 @@ function spawnEnemies() {
     if (frameCount % 120 === 0) {
         rand = Math.round(random(height / 4, height - 100))
             enemy = createSprite(width, rand)
+        
         enemy.velocityX = -2
        
-        
-
-
         randimg= Math.round(random(1,2))
 
         switch(randimg){
             case 1: enemy.addImage(enemy1img)
-            enemy.scale=0.1
+            enemy.scale=0.25
             break;
 
             case 2: enemy.addImage(enemy2img)
-            enemy.scale=0.1
+            enemy.scale=0.25
             break;
             
 
